@@ -66,7 +66,7 @@ include "shared.thrift"
 namespace cpp tutorial
 namespace d tutorial
 namespace dart tutorial
-namespace java tutorial
+namespace java com.ntc.thrift.tutorial
 namespace php tutorial
 namespace perl tutorial
 namespace haxe tutorial

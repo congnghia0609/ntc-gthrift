@@ -25,7 +25,7 @@
 namespace cpp shared
 namespace d share // "shared" would collide with the eponymous D keyword.
 namespace dart shared
-namespace java shared
+namespace java com.ntc.thrift.tutorial
 namespace perl shared
 namespace php shared
 namespace haxe shared
