@@ -22,6 +22,7 @@ func main() {
 	protocolFactory := thrift.NewTBinaryProtocolFactoryDefault()
 	transportFactory := thrift.NewTTransportFactory()
 	transportFactory = thrift.NewTFramedTransportFactory(transportFactory)
+
 	if err := runServer(transportFactory, protocolFactory, addr, secure); err != nil {
 		fmt.Println("error running server:", err)
 	}
@@ -98,7 +99,7 @@ func runServer(transportFactory thrift.TTransportFactory, protocolFactory thrift
 	var err error
 	if secure {
 		cfg := new(tls.Config)
-		if cert, err := tls.LoadX509KeyPair("server.crt", "server.key"); err == nil {
+		if cert, err := tls.LoadX509KeyPair("ssl/server.crt", "ssl/server.pem"); err == nil {
 			cfg.Certificates = append(cfg.Certificates, cert)
 		} else {
 			return err
