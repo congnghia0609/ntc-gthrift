@@ -16,7 +16,8 @@ import (
 )
 
 func main() {
-	addr := "localhost:9090"
+	//addr := "localhost:9090" // Call direct thrift-go
+	addr := "localhost:9000" // Call via thrift-haproxy
 	secure := false
 	protocolFactory := thrift.NewTBinaryProtocolFactoryDefault()
 	transportFactory := thrift.NewTTransportFactory()
