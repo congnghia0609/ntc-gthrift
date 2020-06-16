@@ -7,6 +7,7 @@
 echo "Install library dependencies..."
 
 go get -u github.com/tools/godep
+go get -u github.com/congnghia0609/ntc-gconf
 go get -u github.com/apache/thrift/lib/go/thrift
 
 echo "Install dependencies complete..."

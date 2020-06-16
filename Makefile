@@ -11,11 +11,11 @@ gen:
 
 .PHONY: server
 server:
-	@go run server/server.go
+	@go run main.go
 
 .PHONY: client
 client:
-	@go run client/client.go
+	@go run cli.go
 
 .PHONY: ssl
 ssl:

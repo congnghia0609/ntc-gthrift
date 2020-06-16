@@ -1,0 +1,10 @@
+
+tutorial:
+  ntserver:
+    address: 0.0.0.0:9090
+    is_ssl: false
+    cert_file: ssl/server.crt
+    key_file: ssl/server.pem
+
+
+

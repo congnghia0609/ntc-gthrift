@@ -102,5 +102,6 @@ func runClient(transportFactory thrift.TTransportFactory, protocolFactory thrift
 	}
 	iprot := protocolFactory.GetProtocol(transport)
 	oprot := protocolFactory.GetProtocol(transport)
-	return handleClient(tutorial.NewCalculatorClient(thrift.NewTStandardClient(iprot, oprot)))
+	client := tutorial.NewCalculatorClient(thrift.NewTStandardClient(iprot, oprot))
+	return handleClient(client)
 }
