@@ -1,32 +1,17 @@
 /**
  *
  * @author nghiatc
- * @since May 31, 2020
- * @thrift 0.13.0
+ * @since Jun 16, 2020
  */
 
-package main
+package handler
 
 import (
-	"crypto/tls"
+	"context"
 	"fmt"
-	"github.com/apache/thrift/lib/go/thrift"
-	"golang.org/x/net/context"
-	"ntc-gthrift/thrift/gen-go/tutorial"
+	"ntc-gthrift/example/thrift/gen-go/tutorial"
 	"strconv"
 )
-
-func main() {
-	addr := "localhost:9090"
-	secure := false
-	protocolFactory := thrift.NewTBinaryProtocolFactoryDefault()
-	transportFactory := thrift.NewTTransportFactory()
-	transportFactory = thrift.NewTFramedTransportFactory(transportFactory)
-
-	if err := runServer(transportFactory, protocolFactory, addr, secure); err != nil {
-		fmt.Println("error running server:", err)
-	}
-}
 
 type CalculatorHandler struct {
 	log map[int]*tutorial.SharedStruct
@@ -92,31 +77,4 @@ func (p *CalculatorHandler) GetStruct(ctx context.Context, key int32) (*tutorial
 func (p *CalculatorHandler) Zip(ctx context.Context) (err error) {
 	fmt.Print("zip()\n")
 	return nil
-}
-
-func runServer(transportFactory thrift.TTransportFactory, protocolFactory thrift.TProtocolFactory, addr string, secure bool) error {
-	var transport thrift.TServerTransport
-	var err error
-	if secure {
-		cfg := new(tls.Config)
-		if cert, err := tls.LoadX509KeyPair("ssl/server.crt", "ssl/server.pem"); err == nil {
-			cfg.Certificates = append(cfg.Certificates, cert)
-		} else {
-			return err
-		}
-		transport, err = thrift.NewTSSLServerSocket(addr, cfg)
-	} else {
-		transport, err = thrift.NewTServerSocket(addr)
-	}
-
-	if err != nil {
-		return err
-	}
-	fmt.Printf("%T\n", transport)
-	handler := NewCalculatorHandle()
-	processor := tutorial.NewCalculatorProcessor(handler)
-	server := thrift.NewTSimpleServer4(processor, transport, transportFactory, protocolFactory)
-
-	fmt.Println("Starting the simple server on:", addr)
-	return server.Serve()
 }

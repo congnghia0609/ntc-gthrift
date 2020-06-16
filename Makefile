@@ -7,7 +7,8 @@ deps:
 
 .PHONY: gen
 gen:
-	@cd ./thrift; thrift -r --gen go tutorial.thrift; cd ..;
+	@cd ./example/thrift; thrift -r --gen go tutorial.thrift; cd ../..;
+	@echo thrift gen go complete.
 
 .PHONY: server
 server:

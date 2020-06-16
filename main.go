@@ -9,9 +9,9 @@ package main
 import (
 	"fmt"
 	"github.com/congnghia0609/ntc-gconf/nconf"
-	"ntc-gthrift/handler"
+	"ntc-gthrift/example/handler"
+	"ntc-gthrift/example/thrift/gen-go/tutorial"
 	"ntc-gthrift/ntserver"
-	"ntc-gthrift/thrift/gen-go/tutorial"
 	"path/filepath"
 	"runtime"
 )

@@ -18,10 +18,10 @@ import (
 const NTSPrefix = ".ntserver."
 
 type NTServer struct {
-	Name string
+	Name    string
 	Address string
-	IsSSL bool
-	Server *thrift.TSimpleServer
+	IsSSL   bool
+	Server  *thrift.TSimpleServer
 }
 
 func NewNTServer(name string, processor thrift.TProcessor) *NTServer {

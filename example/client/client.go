@@ -12,7 +12,7 @@ import (
 	"fmt"
 	"github.com/apache/thrift/lib/go/thrift"
 	"golang.org/x/net/context"
-	"ntc-gthrift/thrift/gen-go/tutorial"
+	"ntc-gthrift/example/thrift/gen-go/tutorial"
 )
 
 func main() {

@@ -10,8 +10,8 @@ import (
 	"context"
 	"fmt"
 	"github.com/congnghia0609/ntc-gconf/nconf"
+	"ntc-gthrift/example/thrift/gen-go/tutorial"
 	"ntc-gthrift/ntclient"
-	"ntc-gthrift/thrift/gen-go/tutorial"
 	"path/filepath"
 	"runtime"
 )

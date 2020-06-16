@@ -17,11 +17,11 @@ import (
 const NTCPrefix = ".ntclient."
 
 type NTClient struct {
-	Name string
-	Address string
-	IsSSL bool
+	Name      string
+	Address   string
+	IsSSL     bool
 	Transport thrift.TTransport
-	Client *thrift.TStandardClient
+	Client    *thrift.TStandardClient
 }
 
 func NewNTClient(name string) *NTClient {
@@ -73,6 +73,6 @@ func (ntc *NTClient) Close() {
 	}
 }
 
-func (ntc *NTClient) IsOpen() bool{
+func (ntc *NTClient) IsOpen() bool {
 	return ntc.Transport.IsOpen()
 }
