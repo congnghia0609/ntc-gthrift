@@ -6,5 +6,10 @@ tutorial:
     cert_file: ssl/server.crt
     key_file: ssl/server.pem
 
-
+  ntclient:
+    # Call direct thrift-go
+    address: localhost:9090
+    # Call via thrift-haproxy
+    #address: localhost:9000
+    is_ssl: false
 

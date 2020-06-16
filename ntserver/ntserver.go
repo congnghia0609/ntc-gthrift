@@ -31,12 +31,13 @@ func NewNTServer(name string, processor thrift.TProcessor) *NTServer {
 	c := nconf.GetConfig()
 	addr := c.GetString(name + NTSPrefix + "address")
 	isSSL := c.GetBool(name + NTSPrefix + "is_ssl")
+	fmt.Printf("NewNTServer[%s] isSSL: %v\n", name, isSSL)
 
 	// BinaryProtocol & FramedTransport
 	protocolFactory := thrift.NewTBinaryProtocolFactoryDefault()
 	transportFactory := thrift.NewTTransportFactory()
 	transportFactory = thrift.NewTFramedTransportFactory(transportFactory)
-
+	// Transport
 	var transport thrift.TServerTransport
 	var err error
 	if isSSL {
