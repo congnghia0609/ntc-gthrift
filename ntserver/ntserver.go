@@ -69,3 +69,8 @@ func (nts *NTServer) Start() error {
 	fmt.Println("Starting the simple server on:", nts.Address)
 	return nts.Server.Serve()
 }
+
+func (nts *NTServer) Stop() error {
+	fmt.Println("NTServer[%s] stop", nts.Name)
+	return nts.Server.Stop()
+}
