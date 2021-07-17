@@ -105,6 +105,9 @@ func StartSimpleNTClient() error {
 
 ## Run project
 ```bash
+// 17/07/2021: Thrift Golang not support Go Module
+export GO111MODULE=off
+
 // Gen Source Code
 make gen
 
